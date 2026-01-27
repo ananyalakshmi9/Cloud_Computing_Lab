@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spam Detection ML App</title>
+    <style>
+        :root {
+            --primary-color: #4a90e2;
+            --bg-color: #f0f2f5;
+            --card-bg: #ffffff;
+            --text-color: #2d3436;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+
+        /* The Heading for your SRN */
+        .srn-title {
+            font-size: 1rem;
+            letter-spacing: 2px;
+            color: #636e72;
+            margin-bottom: 5px;
+            text-transform: uppercase;
+        }
+
+        .main-container {
+            background: var(--card-bg);
+            padding: 2.5rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            width: 90%;
+            max-width: 500px;
+            text-align: center;
+        }
+
+        h2 {
+            margin-top: 0;
+            color: var(--primary-color);
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 12px 15px;
+            margin-bottom: 1rem;
+            border: 2px solid #e1e4e8;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+            box-sizing: border-box;
+        }
+
+        input[type="text"]:focus {
+            outline: none;
+            border-color: var(--primary-color);
+        }
+
+        button {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.2s, background 0.3s;
+            width: 100%;
+        }
+
+        button:hover {
+            background-color: #357abd;
+            transform: translateY(-2px);
+        }
+
+        .result-box {
+            margin-top: 2rem;
+            padding: 15px;
+            border-radius: 8px;
+            background: #e3f2fd;
+            border-left: 5px solid var(--primary-color);
+        }
+
+        h3 {
+            margin: 0;
+            font-size: 1.1rem;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="srn-title">PES2UG23CS062</div>
+
+    <div class="main-container">
+        <h2>Spam Detection using ML (Dockerized)</h2>
+
+        <form method="POST">
+            <input type="text" name="message" placeholder="Enter message to analyze..." required>
+            <br>
+            <button type="submit">Predict Sentiment</button>
+        </form>
+
+        {% if result %}
+            <div class="result-box">
+                <h3>Prediction: <strong>{{ result }}</strong></h3>
+            </div>
+        {% endif %}
+    </div>
+
+</body>
+</html>
